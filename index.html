@@ -1,9 +1,8 @@
-
 <!DOCTYPE html>
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>26進数変換ツール</title>
+  <title>26進数変換ツール（0-9, a-p）</title>
   <style>
     body {
       font-family: sans-serif;
@@ -37,7 +36,7 @@
         return;
       }
 
-      const digits = '0123456789abcdefghijklmnop';
+      const digits = '0123456789abcdefghijklmnop'.split('');
       const base = 26;
       let result = '';
 
