@@ -1,1 +1,58 @@
 
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>26進数変換ツール</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 2em;
+    }
+    input, button {
+      font-size: 1em;
+      padding: 0.5em;
+    }
+    .result {
+      margin-top: 1em;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>10進数 → 26進数（0-9, a-p）変換ツール</h1>
+  <label for="decimalInput">10進数を入力：</label>
+  <input type="number" id="decimalInput" min="0" />
+  <button onclick="convertToBase26()">変換</button>
+
+  <div class="result" id="result"></div>
+
+  <script>
+    function convertToBase26() {
+      const input = document.getElementById('decimalInput').value;
+      let num = parseInt(input, 10);
+
+      if (isNaN(num) || num < 0) {
+        document.getElementById('result').innerText = '正の整数を入力してください。';
+        return;
+      }
+
+      const digits = '0123456789abcdefghijklmnop';
+      const base = 26;
+      let result = '';
+
+      if (num === 0) {
+        result = '0';
+      } else {
+        while (num > 0) {
+          const remainder = num % base;
+          result = digits[remainder] + result;
+          num = Math.floor(num / base);
+        }
+      }
+
+      document.getElementById('result').innerText = `26進数: ${result}`;
+    }
+  </script>
+</body>
+</html>
