@@ -2,29 +2,71 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>26進数変換ツール</title>
   <style>
     body {
-      font-family: sans-serif;
+      font-family: 'Arial', sans-serif;
+      background-color: #f9f9f9;
+      color: #333;
+      text-align: center;
       padding: 2em;
+      margin: 0;
     }
-    input, button {
+    h1 {
+      font-size: 2em;
+      margin-bottom: 0.5em;
+      color: #4CAF50;
+    }
+    label {
+      font-size: 1.2em;
+      margin-right: 0.5em;
+    }
+    input {
       font-size: 1em;
       padding: 0.5em;
+      width: 200px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      margin-bottom: 1em;
+    }
+    button {
+      font-size: 1em;
+      padding: 0.5em 1em;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background-color: #45a049;
     }
     .result {
       margin-top: 1em;
+      font-size: 1.2em;
       font-weight: bold;
+      color: #333;
+    }
+    footer {
+      margin-top: 2em;
+      font-size: 0.9em;
+      color: #666;
     }
   </style>
 </head>
 <body>
-  <h1>10進数 → 26進数</h1>
-  <label for="decimalInput">10進数を入力：</label>
-  <input type="number" id="decimalInput" min="0" />
-  <button onclick="convertToBase26()">変換</button>
-
+  <h1>10進数 → 26進数変換ツール</h1>
+  <div>
+    <label for="decimalInput">10進数を入力：</label>
+    <input type="number" id="decimalInput" min="0" placeholder="例: 12345" />
+    <button onclick="convertToBase26()">変換</button>
+  </div>
   <div class="result" id="result"></div>
+  <footer>
+    © 2025 26進数変換ツール
+  </footer>
 
   <script>
     function convertToBase26() {
